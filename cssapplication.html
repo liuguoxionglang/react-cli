@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 100px;
+        }
+        .ech-arrow-l {
+            position: relative;
+            background: #ccc
+        }
+        .ech-arrow-l:before {
+            position: absolute;     
+            content: "";
+            display: block;
+            border-style: solid;
+            margin: auto;
+            width: 0;
+            height: 0;
+            left: -10px;
+            top: 0;
+            bottom: 0;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #ccc transparent transparent;
+        }
+
+        /* div {
+            position: relative;
+            margin-top: 100px;
+        } */
+         /* 取到data-content属性的值 */
+        /* div:hover::after {
+            content: attr(data-content);    
+            display: inline-block;
+            padding: 10px 14px;
+            border: 1px solid red;
+            border-radius: 5px;
+            position: absolute;
+            top: -50px;
+            left: -30px;
+        } */
+
+        .normal_box {
+            width:270px;   
+            height: 150px;
+            padding: 10px;
+            border: 5px solid red;
+        }
+
+        .boxsizing_box {
+            margin-top: 50px;
+            box-sizing: border-box;
+            width: 300px;  
+            height: 150px;
+            padding: 10px;
+            border: 5px solid red;
+        }
+
+         /* 在此处定义全局作用域的css变量 */
+         :root {
+            --mywidth: 500px;
+        }
+
+        .mydifined{
+            width:var(--mywidth);
+            height:100px;
+            border: 1px solid red
+        }
+
+
+
+
+
+        .example-container {
+            text-align: left;
+            padding: 20px;
+            width: 400px;
+        }
+        #example-element {
+            float: left;
+            margin: 10px;
+            border-radius: 150px;
+        }
+
+
+
+
+         .layout {
+            margin-top: 50px;
+            border: 1px solid red;
+        }
+        .layout div {
+            width:100%;
+            height: 30px;
+        }
+        /* 选择类名为layout下面的素有div元素，再选择被选中的元素之后的所有元素 */
+        .layout>div+div{
+            border-top: 1px solid green;
+
+        }
+
+
+
+
+        .main {
+            width: 500px;
+            border: 1px solid red;
+        }
+
+        .left,
+        .right {
+            width: 40%;
+            height: 12ex;
+            background-color: seagreen;
+        }
+
+        .left {
+            -webkit-shape-outside: polygon(0 0, 100% 100%, 0 100%);
+            shape-outside: polygon(0 0, 100% 100%, 0 100%);
+            float: left;
+            -webkit-clip-path: polygon(0 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 100%, 0 100%);
+        }
+
+        .right {
+            -webkit-shape-outside: polygon(100% 0, 100% 100%, 0 100%);
+            shape-outside: polygon(100% 0, 100% 100%, 0 100%);
+            float: right;
+            -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        }
+
+        p {
+            text-align: center;
+            color: red
+        }
+
+        .tranigle{
+            /* width: 200px;
+            height:200px; */
+            width: 0px;
+            height:0px;
+            background-color: blue;
+            border: 100px solid red;
+            margin-top: 50px;
+            border-color: green burlywood red blue;
+        }
+
+         .center{
+                width:500px;
+                height:300px;
+                border: 1px solid red;
+                display: flex
+
+
+            }
+            .center div {
+                width:50px;
+                height: 50px;
+                border: 1px solid red;
+                margin: auto
+            }
+
+
+        img {
+            width:100px;
+            height: 50px;
+            object-fit: cover;
+            object-position:bottom;
+        }
+
+        #div1 {
+            position: absolute;
+            left: 50px;
+            width: calc(100% - 100px);
+            border: 1px solid black;
+            background-color: yellow;
+            padding: 5px;
+            text-align: center;
+        }
+
+        /* 多背景图片：每个图片依次和相应的 `background-position` 匹配*/
+        .examplethree {
+            background-color: #FFEE99;
+            background-repeat: no-repeat;
+            width: 300px;
+            height: 80px;
+            margin-bottom: 12px;
+            background-image:    url("https://developer.mozilla.org/samples/cssref/images/startransparent.gif"), 
+                                url("https://mdn.mozillademos.org/files/7693/catfront.png");
+            background-position: 0px 0px,
+                                center;
+        }
+                
+    </style>
+</head>
+<body>
+        <!-- 伪类元素before演示 -->
+        <!-- <span class="ech-arrow-l">arrow-l</span> -->
+
+        <!-- attr()演示 -->
+        <!-- <div data-content="我们是中国人">放假了收款方老师</div> -->
+
+        <!-- box-sizing 重新定义盒模型的计算方式 -->
+        <!-- <div class = "normal_box"></div>
+        <div  class = "boxsizing_box"></div> -->
+
+        <!-- 自定义属性---CSS自定义属性的简单使用 -->
+        <!-- <div class="mydifined"></div> -->
+
+
+        <!-- shape-outside演示 -->
+        <!-- <div class="example-container">
+            <img id="example-element" class="transition-all" src="https://raw.githubusercontent.com/liuguoxionglang/react-redux/master/p.jpg" width="150" style="shape-outside: circle(50% at 50% 50%);">
+            We had agreed, my companion and I, that I should call for him at his house, after dinner, not later than eleven o’clock. This athletic young Frenchman belongs to a small set of Parisian sportsmen, who have taken up “ballooning” as a pastime. After having exhausted all the sensations that are to be found in ordinary sports, even those of “automobiling” at a breakneck speed, the members of the “Aéro Club” now seek in the air, where they indulge in all kinds of daring feats, the nerve-racking excitement that they have ceased to find on earth.
+        </div> -->
+
+        <!-- 相邻兄弟选择器之常用场景  加边框线 -->
+        <!-- <div class="layout">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div> -->
+
+        <!-- clip-path演示 -->
+        <!-- <div class="main">
+                <div class="left"></div>
+                <div class="right"></div>
+                <p>
+                  Sometimes a web page's text content appears to be
+                  funneling your attention towards a spot on the page
+                  to drive you to follow a particular link. Sometimes
+                  you don't notice.to drive you to follow a particular link. Sometimes
+                  you don't notice.
+                </p>
+              </div> -->
+
+        <!-- css绘制三角形 -->
+        <!-- <div class="tranigle"></div>    
+         -->
+        
+          <!-- 实现水平 垂直居中的简易方法 -->
+        <!-- <div class="center">
+                <div></div>
+        </div> -->
+
+
+         <!-- object-fit=====图片在指定尺寸后，可以设置object-fit为contain或cover保持比例 -->
+        <!-- <img src="https://raw.githubusercontent.com/liuguoxionglang/react-redux/master/p.jpg" alt="" > -->
+
+
+        <!-- 创建一个横跨屏幕的div，div 两边有 50px 的间隙 -->
+        <!-- <div id="div1">一些文本...</div> -->
+
+        <div class="examplethree"></div>
+
+</body>
+</html>
